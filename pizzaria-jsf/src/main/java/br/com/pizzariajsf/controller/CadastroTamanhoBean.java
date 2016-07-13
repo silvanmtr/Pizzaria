@@ -42,7 +42,7 @@ public class CadastroTamanhoBean implements Serializable{
 	public void salvar(){
 		try {
 			this.cadastroTamanhoService.salvar(tamanho);
-			FacesUtil.addSuccessMessage("Tamanho a pizza inserido com sucesso");
+			FacesUtil.addSuccessMessage("Tamanho da pizza inserido com sucesso");
 			this.limpar();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

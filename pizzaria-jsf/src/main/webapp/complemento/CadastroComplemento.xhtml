@@ -7,10 +7,10 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 	
 	<ui:define name="content">
-		<h1 class="aw-page-title">Cadastro de Tamnaho da Pizza</h1>
+		<h1 class="aw-page-title">Cadastro de Complementos</h1>
 		
 		<f:metadata>
-			<o:viewParam name="bebida" value="#{cadastroTamanhoBean.tamanho}" />
+			<o:viewParam name="complemento" value="#{cadastroComplementoBean.complemento}" />
 		</f:metadata>
 		
 		<h:form id="frmCadastro">
@@ -18,7 +18,7 @@
 
 	    	<p:toolbar style="margin-top: 20px">
 	    		<p:toolbarGroup>
-	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroTamanhoBean.salvar}" update="frmCadastro"/>
+	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroComplementoBean.salvar}" update="frmCadastro"/>
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
 					<p:button value="Pesquisa"/>
@@ -27,12 +27,17 @@
 	    	
 	    	<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
 	    			columnClasses="rotulo, campo">
+	    		<p:outputLabel value="Código" for="codigo"/>
+	    		<p:inputText id="codigo" size="20" maxlength="20" value="#{cadastroComplementoBean.complemento.id}" readonly="true"/>
 	    		
 	    		<p:outputLabel value="Nome" for="nome"/>
-	    		<p:inputText id="nome" size="60" maxlength="80" value="#{cadastroTamanhoBean.tamanho.nome}"/>
+	    		<p:inputText id="nome" size="60" maxlength="80" value="#{cadastroComplementoBean.complemento.nome}"/>
 	    		
-	    		<p:outputLabel value="Pedaço(s)" for="pedaco"/>
-	    		<p:inputText id="pedaco" size="60" maxlength="80" value="#{cadastroTamanhoBean.tamanho.pedacos}"/>
+	    		<p:outputLabel value="Tempo" for="tempo"/>
+	    		<p:inputText id="tempo" size="60" maxlength="80" value="#{cadastroComplementoBean.complemento.tempo}"/>
+	    		
+	    		<p:outputLabel value="Preço" for="preco"/>
+	    		<p:inputText id="preco" size="60" maxlength="80" value="#{cadastroComplementoBean.complemento.preco}"/>
 	    	</p:panelGrid>
     	</h:form>
 	</ui:define>
