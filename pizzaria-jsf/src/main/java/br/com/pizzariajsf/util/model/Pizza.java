@@ -5,11 +5,14 @@ package br.com.pizzariajsf.util.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Silvan de Jesus
@@ -32,7 +35,11 @@ public class Pizza {
 	private String tipo;
 	private String ingredientes;
 	private String segundoSabor;
-	
+
+	@NotNull(message = "O tipo da pizza é obrigatório")
+	@Enumerated(EnumType.STRING)
+	private TipoPizza tipoPizza;
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigo_tamanho_pizza")
 	private Tamanho tamanho;
@@ -131,6 +138,14 @@ public class Pizza {
 
 	public void setTamanho(Tamanho tamanho) {
 		this.tamanho = tamanho;
+	}
+
+	public TipoPizza getTipoPizza() {
+		return tipoPizza;
+	}
+
+	public void setTipoPizza(TipoPizza tipoPizza) {
+		this.tipoPizza = tipoPizza;
 	}
 
 	@Override
